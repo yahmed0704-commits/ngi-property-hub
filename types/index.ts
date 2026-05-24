@@ -230,3 +230,55 @@ export const DOCUMENT_TYPES: DocumentType[] = [
 ];
 
 export const PHOTO_CATEGORIES: PhotoCategory[] = ['Before', 'Progress', 'After'];
+
+export type RenovationPhase =
+  | 'Demo'
+  | 'Framing'
+  | 'Rough-In'
+  | 'Insulation'
+  | 'Drywall'
+  | 'Flooring'
+  | 'Painting'
+  | 'Trim & Finish'
+  | 'Kitchen'
+  | 'Bathroom'
+  | 'Exterior'
+  | 'Landscaping'
+  | 'Final Walkthrough'
+  | 'Other';
+
+/**
+ * A progress log entry for an active renovation property.
+ * Tracks phase, percent complete, and optional photo references.
+ * Stored locally under 'ngi_renovation_updates_v1'.
+ *
+ * TODO (V2 backend): Wire to POST /api/renovation-updates with photo upload support.
+ */
+export interface RenovationUpdate {
+  id: string;
+  propertyId: string;
+  title: string;
+  description?: string;
+  phase: RenovationPhase;
+  percentComplete: number;
+  date: string;
+  addedBy: string;
+  photoUris?: string[];
+}
+
+export const RENOVATION_PHASES: RenovationPhase[] = [
+  'Demo',
+  'Framing',
+  'Rough-In',
+  'Insulation',
+  'Drywall',
+  'Flooring',
+  'Painting',
+  'Trim & Finish',
+  'Kitchen',
+  'Bathroom',
+  'Exterior',
+  'Landscaping',
+  'Final Walkthrough',
+  'Other',
+];

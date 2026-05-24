@@ -2,7 +2,7 @@
   "expo": {
     "name": "NGI – Property Hub",
     "slug": "ngi",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "ngi",
@@ -16,7 +16,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.nexusgrowth.ngimanager",
-      "buildNumber": "2",
+      "buildNumber": "5",
       "infoPlist": {
         "NSCameraUsageDescription": "NGI uses your camera to capture property photos for project documentation.",
         "NSPhotoLibraryUsageDescription": "NGI accesses your photo library to attach property photos and documents.",
@@ -26,7 +26,7 @@
     },
     "android": {
       "package": "com.nexusgrowth.ngimanager",
-      "versionCode": 1,
+      "versionCode": 2,
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ]
