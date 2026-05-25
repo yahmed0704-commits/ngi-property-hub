@@ -1,0 +1,32 @@
+kind = "web"
+  previewPath = "/"
+  title = "Nexus Growth Inc. Website"
+  version = "1.0.0"
+  id = "artifacts/nexus-website"
+  router = "path"
+
+  [[integratedSkills]]
+  name = "react-vite"
+  version = "1.0.0"
+
+  [[services]]
+  name = "web"
+  paths = [ "/" ]
+  localPort = 19352
+
+  [services.development]
+  run = "pnpm --filter @workspace/nexus-website run dev"
+
+  [services.production]
+  build = [ "pnpm", "--filter", "@workspace/nexus-website", "run", "build" ]
+  publicDir = "artifacts/nexus-website/dist/public"
+  serve = "static"
+
+  [[services.production.rewrites]]
+  from = "/*"
+  to = "/index.html"
+
+  [services.env]
+  PORT = "19352"
+  BASE_PATH = "/"
+  
