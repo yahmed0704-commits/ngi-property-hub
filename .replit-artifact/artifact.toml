@@ -1,0 +1,28 @@
+kind = "mobile"
+  previewPath = "/ngi/"
+  title = "NGI – Nexus Growth Inc."
+  version = "1.0.0"
+  id = "artifacts/ngi"
+  router = "expo-domain"
+
+  [[integratedSkills]]
+  name = "expo"
+  version = "1.0.0"
+
+  [[services]]
+  ensurePreviewReachable = "/status"
+  name = "expo"
+  paths = [ "/ngi/" ]
+  localPort = 22928
+
+  [services.development]
+  run = "pnpm --filter @workspace/ngi run dev"
+
+  [services.production]
+  build = [ "pnpm", "--filter", "@workspace/ngi", "run", "build" ]
+  run = [ "pnpm", "--filter", "@workspace/ngi", "run", "serve" ]
+
+  [services.env]
+  PORT = "22928"
+  BASE_PATH = "/ngi/"
+  
