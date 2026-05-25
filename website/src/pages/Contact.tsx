@@ -10,7 +10,11 @@ const topics = [
   'Other',
 ];
 
-const WEB3FORMS_KEY = 'PASTE_ACCESS_KEY_HERE';
+// Set your Web3Forms access key here: https://web3forms.com
+// Leave empty to disable form submission until configured.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
+
+const FORM_READY = WEB3FORMS_KEY.length > 0 && WEB3FORMS_KEY !== 'PASTE_ACCESS_KEY_HERE';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', topic: '', message: '' });
@@ -18,6 +22,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!FORM_READY) return;
     setStatus('sending');
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -118,6 +123,14 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="card-dark space-y-5">
                   <h3 className="font-bold text-lg mb-2 text-white">Send Us a Message</h3>
 
+                  {!FORM_READY && (
+                    <div className="rounded-lg p-3 text-sm" style={{ background: 'rgba(201,145,42,0.08)', border: '1px solid rgba(201,145,42,0.25)', color: '#C9912A' }}>
+                      <strong>Contact form coming soon.</strong> In the meantime, email us directly at{' '}
+                      <a href="mailto:admins@nexusgrowthinc.com" style={{ textDecoration: 'underline' }}>admins@nexusgrowthinc.com</a>{' '}
+                      or call <a href="tel:+12126580007" style={{ textDecoration: 'underline' }}>(212) 658-0007</a>.
+                    </div>
+                  )}
+
                   {status === 'error' && (
                     <div className="rounded-lg p-3 text-sm" style={{ background: 'rgba(220,50,50,0.15)', border: '1px solid rgba(220,50,50,0.3)', color: '#f87171' }}>
                       Something went wrong. Please try again or email us directly at admins@nexusgrowthinc.com.
@@ -127,22 +140,22 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Full Name *</label>
-                      <input required type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your full name" style={inputStyle} />
+                      <input required type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your full name" style={inputStyle} disabled={!FORM_READY} />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Email Address *</label>
-                      <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" style={inputStyle} />
+                      <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" style={inputStyle} disabled={!FORM_READY} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Phone (optional)</label>
-                      <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="(000) 000-0000" style={inputStyle} />
+                      <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="(000) 000-0000" style={inputStyle} disabled={!FORM_READY} />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Topic *</label>
-                      <select required value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })} style={{ ...inputStyle, appearance: 'none' as const }}>
+                      <select required value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })} style={{ ...inputStyle, appearance: 'none' as const }} disabled={!FORM_READY}>
                         <option value="">Select a topic…</option>
                         {topics.map((t) => <option key={t} value={t}>{t}</option>)}
                       </select>
@@ -151,7 +164,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Message *</label>
-                    <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us how we can help…" style={{ ...inputStyle, resize: 'none' }} />
+                    <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us how we can help…" style={{ ...inputStyle, resize: 'none' }} disabled={!FORM_READY} />
                   </div>
 
                   <div className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
@@ -160,11 +173,11 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    disabled={status === 'sending'}
+                    disabled={!FORM_READY || status === 'sending'}
                     className="btn-gold w-full text-center"
-                    style={{ opacity: status === 'sending' ? 0.7 : 1 }}
+                    style={{ opacity: (!FORM_READY || status === 'sending') ? 0.4 : 1, cursor: !FORM_READY ? 'not-allowed' : 'pointer' }}
                   >
-                    {status === 'sending' ? 'Sending…' : 'Send Message →'}
+                    {status === 'sending' ? 'Sending…' : FORM_READY ? 'Send Message →' : 'Form Not Yet Configured'}
                   </button>
                 </form>
               )}
