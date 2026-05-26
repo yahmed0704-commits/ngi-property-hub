@@ -28,7 +28,7 @@
     @apply font-bold px-6 py-3 rounded-lg transition-all duration-200 inline-block;
     background-color: #C9912A;
     color: #080f18;
-    min-height: 44px;
+    min-height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@
     @apply border font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-block;
     border-color: rgba(255,255,255,0.2);
     color: white;
-    min-height: 44px;
+    min-height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -55,10 +55,10 @@
   }
   .section-title {
     @apply text-white font-bold mb-4;
-    font-size: 1.625rem;
+    font-size: 1.5rem;
   }
   .card-dark {
-    @apply rounded-2xl p-6 transition-all duration-200;
+    @apply rounded-2xl p-5 transition-all duration-200;
     background-color: #111e2c;
     border: 1px solid rgba(255,255,255,0.05);
   }
@@ -73,12 +73,14 @@
     background-color: #C9912A;
   }
   .page-hero {
-    padding-top: 5.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 5rem;
+    padding-bottom: 2.25rem;
     background: linear-gradient(135deg, #080f18, #1B2B4B, #080f18);
   }
   .container-site {
-    @apply max-w-6xl mx-auto px-5;
+    @apply max-w-6xl mx-auto;
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
   }
 }
 
@@ -91,6 +93,25 @@
   }
 }
 
+/* Very small screens (320px) */
+@media (max-width: 374px) {
+  .page-hero {
+    padding-top: 4.5rem;
+    padding-bottom: 1.75rem;
+  }
+  .section-title {
+    font-size: 1.375rem;
+  }
+  .container-site {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card-dark {
+    padding: 1rem;
+  }
+}
+
+/* Tablet and up */
 @media (min-width: 768px) {
   .page-hero {
     padding-top: 7rem;
@@ -98,6 +119,13 @@
   }
   .section-title {
     font-size: 1.875rem;
+  }
+  .card-dark {
+    padding: 1.5rem;
+  }
+  .container-site {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 

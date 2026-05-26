@@ -88,14 +88,14 @@ export default function Team() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">THE PEOPLE BEHIND NGI</div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Our Team</h1>
-          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 md:mb-4">Our Team</h1>
+          <p className="text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Experienced real estate professionals committed to delivering quality on every project.
           </p>
         </div>
       </section>
 
-      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
+      <section className="py-10 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
           {hasPlaceholders && (
             <div className="rounded-xl p-4 mb-8 text-center" style={{ background: 'rgba(201,145,42,0.1)', border: '1px solid rgba(201,145,42,0.2)' }}>
@@ -105,49 +105,57 @@ export default function Team() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
+          {/* Mobile: stacked horizontal cards. Tablet+: 2-col grid. Desktop: 3-col grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {team.map(({ name, title, bio, initials, photo }) => (
-              <div key={name} className="card-dark text-center group">
-                {photo ? (
-                  <img
-                    src={photo}
-                    alt={name}
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 object-cover object-top"
-                    style={{ border: '3px solid rgba(201,145,42,0.4)' }}
-                  />
-                ) : (
-                  <div
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-4 flex items-center justify-center font-black text-xl"
-                    style={{ background: 'linear-gradient(135deg, #C9912A, #e8b84b)', color: '#080f18' }}
-                  >
-                    {initials}
+              <div key={name} className="card-dark group transition-all duration-200">
+                {/* Mobile layout: horizontal. sm+: vertical centered */}
+                <div className="flex flex-row gap-4 sm:flex-col sm:items-center sm:text-center">
+                  {/* Photo */}
+                  {photo ? (
+                    <img
+                      src={photo}
+                      alt={name}
+                      className="w-16 h-16 sm:w-24 sm:h-24 rounded-full object-cover object-top flex-shrink-0 sm:mx-auto sm:mb-3"
+                      style={{ border: '3px solid rgba(201,145,42,0.4)' }}
+                    />
+                  ) : (
+                    <div
+                      className="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex items-center justify-center font-black text-lg sm:text-xl flex-shrink-0 sm:mx-auto sm:mb-3"
+                      style={{ background: 'linear-gradient(135deg, #C9912A, #e8b84b)', color: '#080f18' }}
+                    >
+                      {initials}
+                    </div>
+                  )}
+                  {/* Info */}
+                  <div className="flex-1 min-w-0 text-left sm:text-center">
+                    <h3 className="font-bold text-white text-sm md:text-base leading-tight mb-0.5">{name}</h3>
+                    <div className="text-xs font-semibold tracking-wide mb-2" style={{ color: '#C9912A' }}>{title}</div>
+                    <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{bio}</p>
                   </div>
-                )}
-                <h3 className="font-bold mb-1 text-white text-sm md:text-base">{name}</h3>
-                <div className="text-xs font-semibold tracking-wide mb-3" style={{ color: '#C9912A' }}>{title}</div>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{bio}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-20" style={{ background: '#111e2c' }}>
+      <section className="py-10 md:py-20" style={{ background: '#111e2c' }}>
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <div className="section-label">OUR CULTURE</div>
               <h2 className="section-title">A Team Built on Trust</h2>
               <div className="gold-divider" />
-              <p className="leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <p className="leading-relaxed mb-4 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 At Nexus Growth Inc., we believe that great real estate starts with great people. Our team brings together expertise in acquisitions, project management, rental operations, and investor relations.
               </p>
-              <p className="leading-relaxed mb-7" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <p className="leading-relaxed mb-6 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 We foster a culture of accountability, transparency, and continuous improvement — because our clients and partners deserve nothing less than our best.
               </p>
-              <Link to="/contact" className="btn-gold text-sm">Work With Our Team →</Link>
+              <Link to="/contact" className="btn-gold text-sm w-full sm:w-auto justify-center">Work With Our Team →</Link>
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-8 lg:mt-0">
+            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-8 lg:mt-0">
               {[
                 ['🎯', 'Results-driven culture'],
                 ['🔍', 'Attention to detail'],
@@ -155,7 +163,7 @@ export default function Team() {
                 ['🌟', 'Client-first approach'],
               ].map(([icon, label]) => (
                 <div key={label} className="card-dark text-center py-5 md:py-6">
-                  <div className="text-3xl mb-2">{icon}</div>
+                  <div className="text-2xl md:text-3xl mb-2">{icon}</div>
                   <div className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.6)' }}>{label}</div>
                 </div>
               ))}
@@ -166,9 +174,11 @@ export default function Team() {
 
       <section className="py-10 md:py-16 text-center" style={{ background: '#080f18' }}>
         <div className="container-site max-w-xl mx-auto">
-          <h2 className="text-white text-2xl md:text-3xl font-black mb-4">Join Our Network</h2>
-          <p className="mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>Contractors, investors, or professionals — we're always open to new partnerships.</p>
-          <Link to="/contact" className="btn-gold">Get In Touch</Link>
+          <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-black mb-3 md:mb-4">Join Our Network</h2>
+          <p className="mb-6 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Contractors, investors, or professionals — we're always open to new partnerships.
+          </p>
+          <Link to="/contact" className="btn-gold w-full sm:w-auto justify-center">Get In Touch</Link>
         </div>
       </section>
     </div>
