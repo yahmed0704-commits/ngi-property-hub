@@ -32,20 +32,17 @@ const why = [
 export default function Home() {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — top-aligned on mobile, centered on desktop */}
       <section
-        className="relative flex items-center overflow-hidden"
-        style={{
-          background: '#080f18',
-          minHeight: 'calc(100svh - 0px)',
-        }}
+        className="relative flex items-start lg:items-center overflow-hidden lg:min-h-screen"
+        style={{ background: '#080f18' }}
       >
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 right-0 w-72 md:w-96 h-72 md:h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(201,145,42,0.07) 0%, transparent 70%)' }} />
           <div className="absolute bottom-1/4 left-0 w-56 md:w-72 h-56 md:h-72 rounded-full" style={{ background: 'radial-gradient(circle, rgba(27,43,75,0.8) 0%, transparent 70%)' }} />
         </div>
 
-        <div className="container-site relative w-full pt-20 pb-10 md:pt-28 lg:pt-32 md:pb-16">
+        <div className="container-site relative w-full pt-20 pb-10 md:pt-24 lg:pt-28 xl:pt-32 lg:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
             <div>
               {/* Badge */}
@@ -206,7 +203,7 @@ export default function Home() {
               </p>
               <Link to="/about" className="btn-gold text-sm w-full sm:w-auto justify-center">Learn Our Story →</Link>
             </div>
-            <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6 lg:mt-0">
+            <div className="grid grid-cols-1 min-[375px]:grid-cols-2 gap-3 md:gap-4 mt-6 lg:mt-0">
               {why.map(({ icon, title, desc }) => (
                 <div key={title} className="card-dark">
                   <div className="text-2xl mb-2 md:mb-3">{icon}</div>
