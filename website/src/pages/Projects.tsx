@@ -42,6 +42,31 @@ const BASE = import.meta.env.BASE_URL;
 
 const completed = [
   {
+    name: '68 Thomas St',
+    location: 'Johnson City, NY 13790',
+    type: 'Fix & Flip',
+    status: 'Sold',
+    details: 'Full gut renovation — designer living room with marble accent panel and wood slat feature wall; new kitchen with white shaker cabinets, black granite countertops, mosaic backsplash, and stainless appliances; fully renovated bathrooms featuring stone tile, glass showers, double vanity, and a jetted tub; refinished hardwood floors throughout; finished basement with carpet and designer accent wall.',
+    highlights: ['Full Kitchen Remodel', 'Stone Tile Bathrooms', 'Jetted Tub & Glass Shower', 'Refinished Hardwood Floors', 'Finished Basement'],
+    photos: [
+      `${BASE}thomas-living-room-1.jpeg`,
+      `${BASE}thomas-accent-wall.jpeg`,
+      `${BASE}thomas-kitchen-1.jpeg`,
+      `${BASE}thomas-kitchen-2.jpeg`,
+      `${BASE}thomas-kitchen-3.jpeg`,
+      `${BASE}thomas-bath-vanity.jpeg`,
+      `${BASE}thomas-bath-shower-1.jpeg`,
+      `${BASE}thomas-bath-shower-2.jpeg`,
+      `${BASE}thomas-bath-tub.jpeg`,
+      `${BASE}thomas-bedroom-1.jpeg`,
+      `${BASE}thomas-bedroom-2.jpeg`,
+      `${BASE}thomas-bedroom-3.jpeg`,
+      `${BASE}thomas-bedroom-4.jpeg`,
+      `${BASE}thomas-basement-hall.jpeg`,
+      `${BASE}thomas-basement-room.jpeg`,
+    ],
+  },
+  {
     name: '90 Theron St',
     location: 'Johnson City, NY 13790',
     type: 'Fix & Flip',
