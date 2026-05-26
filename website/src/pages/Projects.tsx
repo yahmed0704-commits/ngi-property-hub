@@ -38,11 +38,39 @@ const projects = [
   },
 ];
 
+const BASE = import.meta.env.BASE_URL;
+
 const completed = [
-  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NY]', type: 'Rental Setup', year: '[Year]', result: '[Active rental — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
+  {
+    name: '90 Theron St',
+    location: 'Johnson City, NY 13790',
+    type: 'Fix & Flip',
+    status: 'Sold',
+    details: 'Full interior renovation — new kitchen with white shaker cabinets, dark granite countertops, and stainless appliances; designer accent wall with marble panel and wood slats; fully renovated bathrooms with floor-to-ceiling marble tile; new hardwood floors throughout; fresh exterior paint and updated fixtures.',
+    highlights: ['Full Kitchen Remodel', 'Marble Bathrooms', 'Designer Accent Wall', 'New Flooring Throughout'],
+    photos: [
+      `${BASE}theron-exterior-front.jpeg`,
+      `${BASE}theron-exterior-back.jpeg`,
+      `${BASE}theron-living-room-1.jpeg`,
+      `${BASE}theron-living-room-2.jpeg`,
+      `${BASE}theron-kitchen-1.jpeg`,
+      `${BASE}theron-kitchen-2.jpeg`,
+      `${BASE}theron-dining.jpeg`,
+      `${BASE}theron-deck.jpeg`,
+      `${BASE}theron-bath-main-1.jpeg`,
+      `${BASE}theron-bath-main-2.jpeg`,
+      `${BASE}theron-bath-half.jpeg`,
+      `${BASE}theron-bath-half-2.jpeg`,
+      `${BASE}theron-bedroom-1.jpeg`,
+      `${BASE}theron-bedroom-2.jpeg`,
+      `${BASE}theron-bedroom-3.jpeg`,
+      `${BASE}theron-bedroom-4.jpeg`,
+      `${BASE}theron-bedroom-5.jpeg`,
+      `${BASE}theron-stairs.jpeg`,
+      `${BASE}theron-hallway.jpeg`,
+      `${BASE}theron-backyard.jpeg`,
+    ],
+  },
 ];
 
 export default function Projects() {
@@ -137,36 +165,75 @@ export default function Projects() {
           </div>
 
           <div className="section-label mb-2">COMPLETED PROJECTS</div>
-          <h2 className="section-title mb-4 md:mb-5">Past Portfolio</h2>
-          <div
-            className="rounded-xl p-3 md:p-4 mb-4 md:mb-5 text-xs"
-            style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.1)', color: '#C9912A' }}
-          >
-            ⚠️ Property names and details are placeholders — update with your actual completed projects.
-          </div>
+          <h2 className="section-title mb-7 md:mb-10">Past Portfolio</h2>
 
-          {/* Scrollable table wrapper prevents horizontal overflow */}
-          <div className="overflow-x-auto rounded-xl -mx-1 px-1" style={{ border: '1px solid rgba(255,255,255,0.05)' }}>
-            <table className="w-full text-sm" style={{ minWidth: '500px' }}>
-              <thead>
-                <tr style={{ background: 'rgba(27,43,75,0.5)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                  {['Property', 'Location', 'Type', 'Year', 'Outcome'].map((h) => (
-                    <th key={h} className="text-left px-4 py-3 font-semibold text-xs whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.5)' }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {completed.map((p, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td className="px-4 py-3 font-medium text-xs whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.8)' }}>{p.name}</td>
-                    <td className="px-4 py-3 text-xs whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.location}</td>
-                    <td className="px-4 py-3 text-xs whitespace-nowrap" style={{ color: '#C9912A' }}>{p.type}</td>
-                    <td className="px-4 py-3 text-xs whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.year}</td>
-                    <td className="px-4 py-3 text-xs whitespace-nowrap" style={{ color: '#4ade80' }}>{p.result}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {completed.map(({ name, location, type, status, details, highlights, photos }) => (
+              <div
+                key={name}
+                className="rounded-2xl overflow-hidden transition-all group"
+                style={{ background: 'rgba(27,43,75,0.3)', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
+                {/* Thumbnail */}
+                <div
+                  className="h-48 md:h-52 relative group/img overflow-hidden"
+                  style={{ cursor: photos.length > 0 ? 'pointer' : 'default' }}
+                  onClick={() => photos.length > 0 && setGallery({ photos, title: name, subtitle: location })}
+                >
+                  {photos.length > 0 ? (
+                    <>
+                      <img src={photos[0]} alt={name} className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105" />
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity" style={{ background: 'rgba(0,0,0,0.5)' }}>
+                        <span className="text-white font-semibold text-sm px-4 py-2 rounded-full" style={{ background: 'rgba(201,145,42,0.9)' }}>
+                          View All {photos.length} Photos
+                        </span>
+                      </div>
+                      {/* Sold badge overlay */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold" style={{ background: 'rgba(34,197,94,0.9)', color: '#fff' }}>
+                        <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        {status}
+                      </div>
+                      {/* Photo count */}
+                      <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold" style={{ background: 'rgba(0,0,0,0.7)', color: 'rgba(255,255,255,0.8)' }}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        {photos.length}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center" style={{ background: 'rgba(201,145,42,0.07)' }}>
+                      <span className="text-5xl">🏠</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="p-4 md:p-5">
+                  <div className="flex items-start justify-between mb-1.5 gap-2">
+                    <h3 className="font-bold text-sm md:text-base text-white leading-tight">{name}</h3>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0" style={{ background: 'rgba(201,145,42,0.15)', color: '#C9912A' }}>{type}</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-xs mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3 h-3 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {location}
+                  </div>
+                  <p className="text-xs leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>{details}</p>
+
+                  {/* Highlight chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {highlights.map((h) => (
+                      <span key={h} className="text-xs px-2 py-0.5 rounded-full" style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.08)' }}>{h}</span>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setGallery({ photos, title: name, subtitle: location })}
+                    className="w-full text-center text-sm font-semibold py-2.5 rounded-lg transition-all"
+                    style={{ background: 'rgba(201,145,42,0.15)', color: '#C9912A', border: '1px solid rgba(201,145,42,0.3)', minHeight: 44 }}
+                  >
+                    View Photos ({photos.length})
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
