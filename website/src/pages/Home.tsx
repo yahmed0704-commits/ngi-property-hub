@@ -97,13 +97,13 @@ const stats = [
   { num: '12+',    label: 'Properties Transformed' },
   { num: '$5M+',   label: 'Active Deal Flow' },
   { num: '3',      label: 'Projects In Progress' },
-  { num: 'NJ & NY', label: 'Markets Served' },
+  { num: 'New York', label: 'Market Focus' },
 ];
 
 const projects = [
-  { name: 'Maple St.',    location: 'Maplewood, NJ',   status: 'Active Renovation', type: 'Fix & Flip',    gold: true,  progress: 60 },
-  { name: 'Willow Dr.',   location: 'South Orange, NJ', status: 'Active',            type: 'Rental',         gold: true,  progress: null },
-  { name: 'Riverside Ct.', location: 'Bloomfield, NJ', status: 'Rented',            type: 'Multi-Family',   gold: false, progress: null },
+  { name: 'Maple St.',    location: 'Maplewood, NY',   status: 'Active Renovation', type: 'Fix & Flip',    gold: true,  progress: 60 },
+  { name: 'Willow Dr.',   location: 'South Orange, NY', status: 'Active',            type: 'Rental',         gold: true,  progress: null },
+  { name: 'Riverside Ct.', location: 'Bloomfield, NY', status: 'Rented',            type: 'Multi-Family',   gold: false, progress: null },
 ];
 
 const why = [
@@ -187,7 +187,7 @@ export default function Home() {
                   <img src={`${import.meta.env.BASE_URL}nexus-logo.png`} alt="Nexus Growth Inc." className="h-12 w-auto flex-shrink-0" style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
                   <div className="min-w-0">
                     <div className="text-xs font-semibold mb-0.5" style={{ color: '#C9912A' }}>Active Renovation</div>
-                    <div className="text-white font-bold text-sm leading-tight">Maple St. · Maplewood, NJ</div>
+                    <div className="text-white font-bold text-sm leading-tight">Maple St. · Maplewood, NY</div>
                     <div className="text-xs mt-1 font-semibold" style={{ color: 'rgba(255,255,255,0.4)' }}>12+ Properties Transformed</div>
                   </div>
                 </div>
@@ -249,7 +249,7 @@ export default function Home() {
                   {/* Location chip */}
                   <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs" style={{ background: 'rgba(8,15,24,0.8)', color: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.08)' }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3 h-3 flex-shrink-0" style={{ color: '#C9912A' }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Maplewood, NJ
+                    Maplewood, NY
                   </div>
                 </div>
 
@@ -282,7 +282,7 @@ export default function Home() {
                   <div className="grid grid-cols-3 gap-2">
                     {[
                       { label: 'Type', val: 'Fix & Flip' },
-                      { label: 'Market', val: 'New Jersey' },
+                      { label: 'Market', val: 'New York' },
                       { label: 'Status', val: 'Active' },
                     ].map(({ label, val }) => (
                       <div key={label} className="rounded-lg p-2.5 text-center" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
