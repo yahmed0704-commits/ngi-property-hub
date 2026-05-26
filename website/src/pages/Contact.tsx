@@ -10,10 +10,7 @@ const topics = [
   'Other',
 ];
 
-// Set your Web3Forms access key here: https://web3forms.com
-// Leave empty to disable form submission until configured.
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
-
 const FORM_READY = WEB3FORMS_KEY.length > 0 && WEB3FORMS_KEY !== 'PASTE_ACCESS_KEY_HERE';
 
 export default function Contact() {
@@ -56,6 +53,7 @@ export default function Contact() {
     color: 'white',
     fontSize: 14,
     outline: 'none',
+    minHeight: '44px',
   };
 
   return (
@@ -63,43 +61,43 @@ export default function Contact() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">GET IN TOUCH</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Contact Us</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Contact Us</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Whether you're a prospective tenant, investor, or partner — we'd love to hear from you.
           </p>
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12">
             <div className="lg:col-span-2">
               <div className="section-label">REACH OUT</div>
-              <h2 className="text-white text-2xl font-bold mb-6">We're Here to Help</h2>
-              <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <h2 className="text-white text-xl md:text-2xl font-bold mb-5">We're Here to Help</h2>
+              <p className="text-sm leading-relaxed mb-7" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 Have a question about our properties, services, or investment opportunities? Fill out the form or reach out directly — we respond within 24 hours.
               </p>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {[
-                  { icon: '📍', label: 'Office', val: 'Vestal, New York 13850', sub: 'Serving the greater NY/NJ area' },
+                  { icon: '📍', label: 'Office', val: 'Vestal, New York 13850', sub: 'Serving the greater New York area' },
                   { icon: '📧', label: 'Email', val: 'admins@nexusgrowthinc.com', sub: 'We reply within 24 hours' },
                   { icon: '📞', label: 'Phone', val: '(212) 658-0007', sub: 'Mon–Fri, 9am–5pm ET' },
                   { icon: '💬', label: 'Response Time', val: 'Within 24 hours', sub: 'Typically faster for urgent matters' },
                 ].map(({ icon, label, val, sub }) => (
-                  <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg" style={{ background: 'rgba(201,145,42,0.1)' }}>{icon}</div>
+                  <div key={label} className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-base" style={{ background: 'rgba(201,145,42,0.1)' }}>{icon}</div>
                     <div>
                       <div className="text-xs font-semibold mb-0.5" style={{ color: '#C9912A' }}>{label}</div>
-                      <div className="text-sm font-medium text-white">{val}</div>
+                      <div className="text-sm font-medium text-white break-all">{val}</div>
                       <div className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>{sub}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                <div className="text-xs mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>QUICK LINKS</div>
+              <div className="mt-7 pt-7" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <div className="text-xs mb-3" style={{ color: 'rgba(255,255,255,0.3)' }}>QUICK LINKS</div>
                 <div className="flex flex-col gap-2">
                   <Link to="/rentals" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.6)' }}>→ Available Rentals</Link>
                   <Link to="/investor" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.6)' }}>→ Investor Partnerships</Link>
@@ -111,7 +109,7 @@ export default function Contact() {
 
             <div className="lg:col-span-3">
               {status === 'sent' ? (
-                <div className="card-dark text-center py-16">
+                <div className="card-dark text-center py-14">
                   <div className="text-5xl mb-4">✅</div>
                   <h3 className="font-bold text-xl mb-2 text-white">Message Sent!</h3>
                   <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
@@ -120,7 +118,7 @@ export default function Contact() {
                   <button onClick={() => setStatus('idle')} className="btn-outline text-sm">Send Another Message</button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="card-dark space-y-5">
+                <form onSubmit={handleSubmit} className="card-dark space-y-4">
                   <h3 className="font-bold text-lg mb-2 text-white">Send Us a Message</h3>
 
                   {!FORM_READY && (
@@ -164,7 +162,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-xs font-semibold mb-1.5" style={{ color: 'rgba(255,255,255,0.5)' }}>Message *</label>
-                    <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us how we can help…" style={{ ...inputStyle, resize: 'none' }} disabled={!FORM_READY} />
+                    <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us how we can help…" style={{ ...inputStyle, resize: 'none', minHeight: 'auto' }} disabled={!FORM_READY} />
                   </div>
 
                   <div className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>

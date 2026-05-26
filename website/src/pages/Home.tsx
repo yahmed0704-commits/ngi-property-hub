@@ -8,7 +8,7 @@ const stats = [
 ];
 
 const services = [
-  { icon: '🏠', title: 'Fix & Flip', desc: 'Strategic property acquisitions, full renovations, and profitable resale across New Jersey markets.' },
+  { icon: '🏠', title: 'Fix & Flip', desc: 'Strategic property acquisitions, full renovations, and profitable resale across New York markets.' },
   { icon: '🏢', title: 'Rental Management', desc: 'End-to-end rental management for residential and multi-family properties.' },
   { icon: '🔨', title: 'Renovation & Construction', desc: 'Expert renovation coordination delivering quality craftsmanship on time and on budget.' },
   { icon: '📈', title: 'Real Estate Investment', desc: 'Creating high-yield investment opportunities for partners and stakeholders.' },
@@ -17,14 +17,14 @@ const services = [
 ];
 
 const projects = [
-  { name: 'Maple St.', location: 'Maplewood, NJ', status: 'Active Renovation', type: 'Fix & Flip', gold: true },
-  { name: 'Willow Dr.', location: 'South Orange, NJ', status: 'Active', type: 'Rental Property', gold: true },
-  { name: 'Riverside Ct.', location: 'Bloomfield, NJ', status: 'Rented', type: 'Multi-Family', gold: false },
+  { name: 'Maple St.', location: 'Maplewood, NY', status: 'Active Renovation', type: 'Fix & Flip', gold: true },
+  { name: 'Willow Dr.', location: 'South Orange, NY', status: 'Active', type: 'Rental Property', gold: true },
+  { name: 'Riverside Ct.', location: 'Bloomfield, NY', status: 'Rented', type: 'Multi-Family', gold: false },
 ];
 
 const why = [
   { icon: '⭐', title: 'Quality First', desc: 'Every project is executed with meticulous attention to detail and craftsmanship.' },
-  { icon: '🛡️', title: 'Trusted & Reliable', desc: 'Years of experience and a proven track record across New Jersey real estate.' },
+  { icon: '🛡️', title: 'Trusted & Reliable', desc: 'Years of experience and a proven track record across New York real estate.' },
   { icon: '💡', title: 'Smart Investment', desc: 'Data-driven decisions that maximize ROI for all stakeholders and partners.' },
   { icon: '🌱', title: 'Community Focused', desc: 'We build neighborhoods, not just properties — committed to local growth.' },
 ];
@@ -39,23 +39,23 @@ export default function Home() {
           <div className="absolute bottom-1/4 left-0 w-72 h-72 rounded-full" style={{ background: 'radial-gradient(circle, rgba(27,43,75,0.8) 0%, transparent 70%)' }} />
         </div>
 
-        <div className="container-site relative w-full pt-24 pb-16 md:pt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="container-site relative w-full pt-20 pb-10 md:pt-28 lg:pt-32 md:pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6" style={{ border: '1px solid rgba(201,145,42,0.3)', background: 'rgba(201,145,42,0.08)' }}>
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-5" style={{ border: '1px solid rgba(201,145,42,0.3)', background: 'rgba(201,145,42,0.08)' }}>
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#C9912A' }} />
                 <span className="text-xs font-semibold tracking-widest" style={{ color: '#C9912A' }}>NEW YORK'S PREMIER REAL ESTATE FIRM</span>
               </div>
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black text-white leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-white leading-tight mb-2">
                 We Believe In
               </h1>
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-tight mb-6 text-gradient">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black leading-tight mb-5 text-gradient">
                 Quality.
               </h1>
-              <p className="text-lg leading-relaxed mb-8 max-w-xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Nexus Growth Inc. is a premier real estate investment and development company — transforming properties, building communities, and delivering results across New York and New Jersey.
+              <p className="text-base md:text-lg leading-relaxed mb-7 max-w-xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                Nexus Growth Inc. is a premier real estate investment and development company — transforming properties, building communities, and delivering results across New York.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link to="/projects" className="btn-gold text-sm">View Our Projects →</Link>
                 <Link to="/rentals" className="btn-outline text-sm">Available Rentals</Link>
               </div>
@@ -67,7 +67,7 @@ export default function Home() {
                   <img src={`${import.meta.env.BASE_URL}nexus-logo.png`} alt="Nexus Growth Inc." className="h-32 w-auto" style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
                   <div className="text-center mt-2">
                     <div className="text-sm font-semibold" style={{ color: '#C9912A' }}>Active Renovation</div>
-                    <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Maple St. · Maplewood, NJ</div>
+                    <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>Maple St. · Maplewood, NY</div>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map(({ num, label }) => (
               <div key={label} className="text-center">
-                <div className="font-black text-3xl md:text-4xl" style={{ color: '#C9912A' }}>{num}</div>
+                <div className="font-black text-2xl md:text-3xl lg:text-4xl" style={{ color: '#C9912A' }}>{num}</div>
                 <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{label}</div>
               </div>
             ))}
@@ -95,42 +95,42 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 md:mb-14">
             <div className="section-label">WHAT WE DO</div>
             <h2 className="section-title">Our Services</h2>
-            <p className="max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.5)' }}>From strategic acquisitions to full-service property management — we deliver end-to-end real estate excellence.</p>
+            <p className="max-w-xl mx-auto text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.5)' }}>From strategic acquisitions to full-service property management — we deliver end-to-end real estate excellence.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map(({ icon, title, desc }) => (
               <div key={title} className="card-dark group cursor-pointer">
-                <div className="text-3xl mb-4">{icon}</div>
-                <h3 className="font-bold text-lg mb-2 text-white transition-colors group-hover:text-[#C9912A]">{title}</h3>
+                <div className="text-3xl mb-3">{icon}</div>
+                <h3 className="font-bold text-base mb-2 text-white transition-colors group-hover:text-[#C9912A]">{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{desc}</p>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-8">
             <Link to="/services" className="btn-outline text-sm">View All Services →</Link>
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20" style={{ background: '#1B2B4B' }}>
+      <section className="py-12 md:py-20" style={{ background: '#1B2B4B' }}>
         <div className="container-site">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-14 gap-3">
             <div>
               <div className="section-label">PORTFOLIO</div>
               <h2 className="section-title mb-0">Current Projects</h2>
             </div>
-            <Link to="/projects" className="text-sm font-semibold transition-colors" style={{ color: '#C9912A' }}>View All →</Link>
+            <Link to="/projects" className="text-sm font-semibold transition-colors flex-shrink-0" style={{ color: '#C9912A' }}>View All →</Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {projects.map(({ name, location, status, type, gold }) => (
               <div key={name} className="rounded-2xl overflow-hidden transition-all group" style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.03)' }}>
-                <div className="h-44 flex items-center justify-center" style={{ background: 'rgba(201,145,42,0.08)' }}>
+                <div className="h-40 flex items-center justify-center" style={{ background: 'rgba(201,145,42,0.08)' }}>
                   <span className="text-5xl">🏠</span>
                 </div>
                 <div className="p-5">
@@ -148,13 +148,13 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <div className="section-label">WHY NGI</div>
               <h2 className="section-title">Built on Trust,<br />Driven by Quality</h2>
-              <p className="leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>We bring decades of combined expertise to every project. Our commitment to quality and integrity is not just a promise — it's our track record.</p>
+              <p className="leading-relaxed mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>We bring decades of combined expertise to every project. Our commitment to quality and integrity is not just a promise — it's our track record.</p>
               <Link to="/about" className="btn-gold text-sm">Learn Our Story →</Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -171,13 +171,13 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20" style={{ background: '#1B2B4B', borderTop: '1px solid rgba(201,145,42,0.1)' }}>
+      <section className="py-12 md:py-20" style={{ background: '#1B2B4B', borderTop: '1px solid rgba(201,145,42,0.1)' }}>
         <div className="container-site text-center">
           <div className="max-w-2xl mx-auto">
             <div className="section-label">GET STARTED</div>
-            <h2 className="text-white text-3xl md:text-4xl font-black mb-4">Ready to Partner With Us?</h2>
-            <p className="text-lg mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Whether you're an investor, property owner, or future tenant — Nexus Growth Inc. is ready to build with you.</p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-black mb-4">Ready to Partner With Us?</h2>
+            <p className="text-base md:text-lg mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>Whether you're an investor, property owner, or future tenant — Nexus Growth Inc. is ready to build with you.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link to="/contact" className="btn-gold">Contact Us Today</Link>
               <Link to="/investor" className="btn-outline">Partner With Us</Link>
             </div>

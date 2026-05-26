@@ -57,8 +57,8 @@ export default function Navbar() {
     >
       <div className="container-site flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-          <img src={`${import.meta.env.BASE_URL}nexus-logo.png`} alt="Nexus Growth Inc." className="h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <img src={`${import.meta.env.BASE_URL}nexus-logo.png`} alt="Nexus Growth Inc." className="h-8 sm:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
           <span className="text-xs font-semibold tracking-widest hidden sm:block" style={{ color: '#C9912A' }}>NEXUSGROWTHINC.COM</span>
         </Link>
 
@@ -114,11 +114,11 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile burger */}
+        {/* Mobile burger — large tap target */}
         <button
           onClick={toggleMobile}
-          className="lg:hidden p-2 transition-colors"
-          style={{ color: 'rgba(255,255,255,0.7)' }}
+          className="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg transition-colors"
+          style={{ color: 'rgba(255,255,255,0.8)', background: open ? 'rgba(201,145,42,0.1)' : 'transparent' }}
           aria-label="Toggle menu"
         >
           {open ? (
@@ -133,40 +133,51 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — scrollable so it never clips on short screens */}
       {open && (
-        <div className="lg:hidden px-4 py-6 flex flex-col gap-2" style={{ background: '#080f18', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div
+          className="lg:hidden px-4 py-5 flex flex-col gap-1"
+          style={{
+            background: '#080f18',
+            borderTop: '1px solid rgba(255,255,255,0.05)',
+            maxHeight: 'calc(100vh - 4rem)',
+            overflowY: 'auto',
+          }}
+        >
           {navLinks.map((link) => (
             <div key={link.label}>
               <Link
                 to={link.href}
-                className="block px-3 py-3 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center px-4 rounded-xl text-sm font-medium transition-colors"
                 style={{
-                  color: location.pathname === link.href ? '#C9912A' : 'rgba(255,255,255,0.7)',
+                  color: location.pathname === link.href ? '#C9912A' : 'rgba(255,255,255,0.8)',
                   background: location.pathname === link.href ? 'rgba(27,43,75,1)' : '',
+                  minHeight: '48px',
                 }}
               >
                 {link.label}
               </Link>
               {link.children && (
-                <div className="ml-4 mt-1 flex flex-col gap-1">
+                <div className="ml-4 mb-1 flex flex-col gap-0.5">
                   {link.children.slice(1).map((child) => (
                     <Link
                       key={child.href}
                       to={child.href}
-                      className="block px-3 py-2 rounded-lg text-xs transition-colors"
-                      style={{ color: 'rgba(255,255,255,0.5)' }}
+                      className="flex items-center px-4 rounded-xl text-xs transition-colors"
+                      style={{ color: 'rgba(255,255,255,0.45)', minHeight: '40px' }}
                     >
-                      {child.label}
+                      → {child.label}
                     </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
-          <Link to="/contact" className="btn-gold text-sm text-center mt-4">
-            Contact Us
-          </Link>
+          <div className="pt-3 pb-1">
+            <Link to="/contact" className="btn-gold text-sm text-center w-full">
+              Contact Us
+            </Link>
+          </div>
         </div>
       )}
     </header>

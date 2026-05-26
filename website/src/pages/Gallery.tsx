@@ -26,24 +26,25 @@ export default function Gallery() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">OUR WORK</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Before & After Gallery</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Before & After Gallery</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             See the transformations — from distressed properties to beautiful, quality homes.
           </p>
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="rounded-xl p-4 mb-10 text-center text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.15)', color: '#C9912A' }}>
+          <div className="rounded-xl p-4 mb-8 text-center text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.15)', color: '#C9912A' }}>
             ⚠️ Photo gallery is ready for your real before/after photos — please provide images to complete this section.
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-10">
+          {/* Category filter — horizontally scrollable on mobile */}
+          <div className="flex gap-2 mb-8 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
             {categories.map((cat, i) => (
               <button
                 key={cat}
-                className="px-4 py-2 rounded-full text-xs font-semibold transition-all"
+                className="flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all"
                 style={i === 0
                   ? { background: '#C9912A', color: '#080f18' }
                   : { border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }
@@ -54,13 +55,13 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {placeholders.map(({ cat, label, sub }, i) => (
               <div key={i} className="rounded-2xl overflow-hidden transition-all cursor-pointer" style={{ border: '1px solid rgba(255,255,255,0.05)' }}>
                 <div
                   className="relative flex items-center justify-center"
                   style={{
-                    height: 220,
+                    height: 200,
                     background: `linear-gradient(135deg, rgba(27,43,75,${0.4 + (i % 3) * 0.2}), rgba(36,61,96,${0.6 + (i % 2) * 0.2}))`,
                   }}
                 >
@@ -78,9 +79,9 @@ export default function Gallery() {
             ))}
           </div>
 
-          <div className="mt-16 text-center rounded-2xl p-10" style={{ border: '1px solid rgba(201,145,42,0.15)', background: 'rgba(201,145,42,0.05)' }}>
+          <div className="mt-12 text-center rounded-2xl p-6 md:p-10" style={{ border: '1px solid rgba(201,145,42,0.15)', background: 'rgba(201,145,42,0.05)' }}>
             <div className="text-4xl mb-4">📸</div>
-            <h3 className="font-bold text-xl mb-3 text-white">Your Transformation Photos Go Here</h3>
+            <h3 className="font-bold text-lg md:text-xl mb-3 text-white">Your Transformation Photos Go Here</h3>
             <p className="text-sm max-w-md mx-auto mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Send us your before/after photos and we'll showcase your renovation stories in this gallery. Each project tells a powerful story of transformation.
             </p>

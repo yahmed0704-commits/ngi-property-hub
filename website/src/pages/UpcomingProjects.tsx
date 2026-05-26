@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const upcoming = [
   {
     name: '[Property Address — placeholder]',
-    location: '[City, NJ — placeholder]',
+    location: '[City, NY — placeholder]',
     type: 'Fix & Flip',
     status: 'Under Contract',
     est: '[Q3 2025 — placeholder]',
@@ -11,7 +11,7 @@ const upcoming = [
   },
   {
     name: '[Property Address — placeholder]',
-    location: '[City, NJ — placeholder]',
+    location: '[City, NY — placeholder]',
     type: 'Rental Conversion',
     status: 'In Analysis',
     est: '[Q4 2025 — placeholder]',
@@ -19,7 +19,7 @@ const upcoming = [
   },
   {
     name: '[Property Address — placeholder]',
-    location: '[City, NJ — placeholder]',
+    location: '[City, NY — placeholder]',
     type: 'Fix & Flip',
     status: 'Prospecting',
     est: '[2026 — placeholder]',
@@ -39,20 +39,20 @@ export default function UpcomingProjects() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">COMING SOON</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Upcoming Projects</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Upcoming Projects</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             A look at what's in our pipeline — properties we're actively acquiring and planning.
           </p>
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="rounded-xl p-4 mb-10 text-center text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.15)', color: '#C9912A' }}>
+          <div className="rounded-xl p-4 mb-8 text-center text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.15)', color: '#C9912A' }}>
             ⚠️ Project details below are placeholders — replace with your actual upcoming acquisitions when ready to publish.
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 md:mb-16">
             {upcoming.map(({ name, location, type, status, est, desc }) => (
               <div key={name} className="card-dark" style={{ border: '1px solid rgba(255,255,255,0.05)' }}>
                 <div className="flex items-center justify-between mb-4">
@@ -68,12 +68,12 @@ export default function UpcomingProjects() {
             ))}
           </div>
 
-          <div className="rounded-2xl p-8 text-center" style={{ background: 'rgba(27,43,75,0.3)', border: '1px solid rgba(201,145,42,0.1)' }}>
+          <div className="rounded-2xl p-6 md:p-8 text-center" style={{ background: 'rgba(27,43,75,0.3)', border: '1px solid rgba(201,145,42,0.1)' }}>
             <div className="section-label">PIPELINE OVERVIEW</div>
-            <h3 className="text-white text-2xl font-bold mb-6">Our Acquisition Strategy</h3>
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-6">Our Acquisition Strategy</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
-                ['📍', 'Market Focus', 'Essex, Union, Bergen, and Morris counties in NJ'],
+                ['📍', 'Market Focus', 'New York metro area'],
                 ['🎯', 'Target Properties', 'Distressed single-family and multi-family properties'],
                 ['💰', 'Investment Range', '[Investment range — placeholder]'],
               ].map(([icon, title, detail]) => (
@@ -88,13 +88,13 @@ export default function UpcomingProjects() {
         </div>
       </section>
 
-      <section className="py-16 text-center" style={{ background: '#1B2B4B' }}>
+      <section className="py-10 md:py-16 text-center" style={{ background: '#1B2B4B' }}>
         <div className="container-site max-w-2xl mx-auto">
-          <h2 className="text-white text-3xl font-black mb-4">Get Early Access to Deals</h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <h2 className="text-white text-2xl md:text-3xl font-black mb-4">Get Early Access to Deals</h2>
+          <p className="mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>
             Join our investor network and receive first-look opportunities on upcoming acquisitions before they go to the wider market.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Link to="/investor" className="btn-gold">Investor Partnerships</Link>
             <Link to="/contact" className="btn-outline">Get Notified</Link>
           </div>

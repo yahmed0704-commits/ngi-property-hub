@@ -28,6 +28,10 @@
     @apply font-bold px-6 py-3 rounded-lg transition-all duration-200 inline-block;
     background-color: #C9912A;
     color: #080f18;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .btn-gold:hover {
     background-color: #e8b84b;
@@ -36,6 +40,10 @@
     @apply border font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-block;
     border-color: rgba(255,255,255,0.2);
     color: white;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .btn-outline:hover {
     border-color: #C9912A;
@@ -46,7 +54,8 @@
     color: #C9912A;
   }
   .section-title {
-    @apply text-white text-3xl font-bold mb-4;
+    @apply text-white font-bold mb-4;
+    font-size: 1.625rem;
   }
   .card-dark {
     @apply rounded-2xl p-6 transition-all duration-200;
@@ -64,11 +73,12 @@
     background-color: #C9912A;
   }
   .page-hero {
-    @apply pt-28 pb-16;
+    padding-top: 5.5rem;
+    padding-bottom: 2.5rem;
     background: linear-gradient(135deg, #080f18, #1B2B4B, #080f18);
   }
   .container-site {
-    @apply max-w-6xl mx-auto px-4;
+    @apply max-w-6xl mx-auto px-5;
   }
 }
 
@@ -78,6 +88,16 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-hero {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+  .section-title {
+    font-size: 1.875rem;
   }
 }
 

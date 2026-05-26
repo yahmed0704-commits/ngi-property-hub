@@ -6,7 +6,7 @@ const services = [
     icon: '🏠',
     title: 'Fix & Flip',
     tagline: 'Strategic acquisitions, quality renovations, profitable resale.',
-    desc: 'We identify undervalued properties across New Jersey, execute comprehensive renovations, and resell at maximum value. Our team manages every step — from acquisition analysis to final staging and sale.',
+    desc: 'We identify undervalued properties across New York, execute comprehensive renovations, and resell at maximum value. Our team manages every step — from acquisition analysis to final staging and sale.',
     includes: ['Property sourcing & analysis', 'Acquisition strategy', 'Full renovation management', 'Interior design & staging', 'Market-timed resale', 'ROI tracking & reporting'],
   },
   {
@@ -57,27 +57,27 @@ export default function Services() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">WHAT WE OFFER</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Our Services</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Our Services</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Full-spectrum real estate services — from acquisition to management to investor partnerships.
           </p>
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 gap-5 md:gap-7">
             {services.map(({ id, icon, title, tagline, desc, includes }, i) => (
               <div
                 key={id}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start rounded-2xl p-8 transition-all"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 items-start rounded-2xl p-5 md:p-8 transition-all"
                 style={{ background: i % 2 === 0 ? 'rgba(27,43,75,0.3)' : 'rgba(17,30,44,0.5)', border: '1px solid rgba(255,255,255,0.05)' }}
               >
                 <div>
-                  <div className="text-4xl mb-4">{icon}</div>
+                  <div className="text-3xl md:text-4xl mb-3">{icon}</div>
                   <div className="section-label">{tagline}</div>
-                  <h2 className="text-white text-2xl font-bold mb-3">{title}</h2>
-                  <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{desc}</p>
+                  <h2 className="text-white text-xl md:text-2xl font-bold mb-3">{title}</h2>
+                  <p className="leading-relaxed text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>{desc}</p>
                 </div>
                 <div>
                   <h4 className="text-xs font-semibold tracking-widest mb-4" style={{ color: '#C9912A' }}>WHAT'S INCLUDED</h4>
@@ -99,11 +99,11 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-16 text-center" style={{ background: '#1B2B4B' }}>
+      <section className="py-10 md:py-16 text-center" style={{ background: '#1B2B4B' }}>
         <div className="container-site max-w-xl mx-auto">
-          <h2 className="text-white text-3xl font-black mb-4">Ready to Start?</h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Contact us to discuss which services best fit your real estate goals.</p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h2 className="text-white text-2xl md:text-3xl font-black mb-4">Ready to Start?</h2>
+          <p className="mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>Contact us to discuss which services best fit your real estate goals.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Link to="/contact" className="btn-gold">Get In Touch</Link>
             <Link to="/investor" className="btn-outline">Investment Opportunities</Link>
           </div>

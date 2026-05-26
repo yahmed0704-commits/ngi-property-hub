@@ -5,7 +5,7 @@ import PhotoGallery from '../components/PhotoGallery';
 const units = [
   {
     address: '156 Willow Dr.',
-    city: 'Montclair, NJ',
+    city: 'Montclair, NY',
     status: 'Active',
     statusStyle: { background: 'rgba(34,197,94,0.2)', color: '#4ade80' },
     rent: '$2,650 / mo',
@@ -19,7 +19,7 @@ const units = [
   },
   {
     address: '310 Riverside Ct., Unit 1',
-    city: 'Bloomfield, NJ',
+    city: 'Bloomfield, NY',
     status: 'Ending Soon',
     statusStyle: { background: 'rgba(234,179,8,0.2)', color: '#facc15' },
     rent: '$1,850 / mo',
@@ -33,7 +33,7 @@ const units = [
   },
   {
     address: '310 Riverside Ct., Unit 2',
-    city: 'Bloomfield, NJ',
+    city: 'Bloomfield, NY',
     status: 'Vacant',
     statusStyle: { background: 'rgba(201,145,42,0.2)', color: '#C9912A' },
     rent: '[Price — placeholder]',
@@ -61,23 +61,23 @@ export default function Rentals() {
         />
       )}
 
-      <section className="pt-32 pb-8" style={{ background: '#080f18' }}>
+      <section className="pt-24 md:pt-32 pb-8" style={{ background: '#080f18' }}>
         <div className="container-site">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8 md:mb-10">
             <div>
               <div className="section-label mb-2">FIND YOUR HOME</div>
-              <h1 className="text-3xl md:text-4xl font-black text-white">Available Rentals</h1>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white">Available Rentals</h1>
               <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
                 Managed directly by Nexus Growth Inc. — no middlemen, just great homes.
               </p>
             </div>
-            <Link to="/contact" className="btn-gold flex-shrink-0">Inquire About a Unit</Link>
+            <Link to="/contact" className="btn-gold flex-shrink-0 w-full sm:w-auto text-center">Inquire About a Unit</Link>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-12 md:mb-16">
             {units.map(({ address, city, status, statusStyle, rent, beds, baths, type, available, features, cta, photos }) => (
               <div key={address} className="rounded-2xl overflow-hidden transition-all" style={{ background: 'rgba(27,43,75,0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div
-                  className="h-48 flex items-center justify-center relative group overflow-hidden"
+                  className="h-44 flex items-center justify-center relative group overflow-hidden"
                   style={{ background: 'rgba(201,145,42,0.07)', cursor: photos.length > 0 ? 'pointer' : 'default' }}
                   onClick={() => photos.length > 0 && setGallery({ photos, title: address, subtitle: city })}
                 >
@@ -93,13 +93,13 @@ export default function Rentals() {
                   )}
                   <div className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full" style={statusStyle}>{status}</div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-bold mb-1 text-white">{address}</h3>
+                <div className="p-5">
+                  <h3 className="font-bold mb-1 text-white text-sm md:text-base">{address}</h3>
                   <div className="text-xs mb-3" style={{ color: 'rgba(255,255,255,0.5)' }}>📍 {city}</div>
                   <div className="font-black text-xl mb-1" style={{ color: '#C9912A' }}>{rent}</div>
                   <div className="text-xs mb-4" style={{ color: 'rgba(255,255,255,0.3)' }}>{available}</div>
 
-                  <div className="flex gap-4 text-xs mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  <div className="flex flex-wrap gap-3 text-xs mb-4" style={{ color: 'rgba(255,255,255,0.6)' }}>
                     <span>🛏 {beds} bed</span>
                     <span>🚿 {baths} bath</span>
                     <span>🏠 {type}</span>
@@ -116,7 +116,7 @@ export default function Rentals() {
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={() => photos.length > 0 ? setGallery({ photos, title: address, subtitle: city }) : undefined}
-                      className="block text-center text-sm font-semibold py-2 rounded-lg transition-all"
+                      className="block text-center text-sm font-semibold py-2.5 rounded-lg transition-all"
                       style={photos.length > 0
                         ? { background: 'rgba(201,145,42,0.15)', color: '#C9912A', border: '1px solid rgba(201,145,42,0.3)', cursor: 'pointer' }
                         : { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.25)', border: '1px solid rgba(255,255,255,0.08)', cursor: 'default' }}
@@ -139,7 +139,7 @@ export default function Rentals() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="card-dark">
               <h3 className="font-bold mb-4 text-white">Why Rent With NGI?</h3>
               <ul className="space-y-3">
@@ -169,10 +169,10 @@ export default function Rentals() {
         </div>
       </section>
 
-      <section className="py-16 text-center" style={{ background: '#1B2B4B' }}>
+      <section className="py-10 md:py-16 text-center" style={{ background: '#1B2B4B' }}>
         <div className="container-site max-w-xl mx-auto">
-          <h2 className="text-white text-3xl font-black mb-4">Interested in a Unit?</h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Reach out and we'll get back to you within 24 hours.</p>
+          <h2 className="text-white text-2xl md:text-3xl font-black mb-4">Interested in a Unit?</h2>
+          <p className="mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>Reach out and we'll get back to you within 24 hours.</p>
           <Link to="/contact" className="btn-gold">Contact Us About Rentals</Link>
         </div>
       </section>

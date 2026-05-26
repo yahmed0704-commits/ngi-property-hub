@@ -5,7 +5,7 @@ import PhotoGallery from '../components/PhotoGallery';
 const projects = [
   {
     name: 'Maple St.',
-    location: 'Maplewood, NJ',
+    location: 'Maplewood, NY',
     status: 'Active Renovation',
     type: 'Fix & Flip',
     gold: true,
@@ -16,7 +16,7 @@ const projects = [
   },
   {
     name: 'Willow Dr.',
-    location: 'South Orange, NJ',
+    location: 'South Orange, NY',
     status: 'Active',
     type: 'Rental Property',
     gold: true,
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     name: 'Riverside Ct.',
-    location: 'Bloomfield, NJ',
+    location: 'Bloomfield, NY',
     status: 'Rented',
     type: 'Multi-Family',
     gold: false,
@@ -39,10 +39,10 @@ const projects = [
 ];
 
 const completed = [
-  { name: '[Property Name]', location: '[Location, NJ]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NJ]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NJ]', type: 'Rental Setup', year: '[Year]', result: '[Active rental — placeholder]' },
-  { name: '[Property Name]', location: '[Location, NJ]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
+  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
+  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
+  { name: '[Property Name]', location: '[Location, NY]', type: 'Rental Setup', year: '[Year]', result: '[Active rental — placeholder]' },
+  { name: '[Property Name]', location: '[Location, NY]', type: 'Fix & Flip', year: '[Year]', result: '[Sold — placeholder]' },
 ];
 
 export default function Projects() {
@@ -62,23 +62,23 @@ export default function Projects() {
       <section className="page-hero">
         <div className="container-site text-center">
           <div className="section-label">OUR PORTFOLIO</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Current Projects</h1>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Active renovations and managed properties across New Jersey.
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">Current Projects</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            Active renovations and managed properties across New York.
           </p>
         </div>
       </section>
 
-      <section className="py-20" style={{ background: '#080f18' }}>
+      <section className="py-12 md:py-20" style={{ background: '#080f18' }}>
         <div className="container-site">
           <div className="section-label mb-2">ACTIVE PROJECTS</div>
-          <h2 className="section-title mb-10">In Progress</h2>
+          <h2 className="section-title mb-8 md:mb-10">In Progress</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12 md:mb-16">
             {projects.map(({ name, location, status, type, gold, details, budget, timeline, photos }) => (
               <div key={name} className="rounded-2xl overflow-hidden transition-all group" style={{ background: 'rgba(27,43,75,0.3)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <div
-                  className="h-48 flex items-center justify-center relative group/img overflow-hidden"
+                  className="h-44 flex items-center justify-center relative group/img overflow-hidden"
                   style={{ background: 'rgba(201,145,42,0.07)', cursor: photos.length > 0 ? 'pointer' : 'default' }}
                   onClick={() => photos.length > 0 && setGallery({ photos, title: name, subtitle: location })}
                 >
@@ -93,13 +93,13 @@ export default function Projects() {
                     <span className="text-6xl">🏗️</span>
                   )}
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-bold text-lg text-white">{name}</h3>
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={gold ? { background: 'rgba(201,145,42,0.2)', color: '#C9912A' } : { background: 'rgba(34,197,94,0.1)', color: '#4ade80' }}>{status}</span>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-3 gap-2">
+                    <h3 className="font-bold text-base text-white">{name}</h3>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0" style={gold ? { background: 'rgba(201,145,42,0.2)', color: '#C9912A' } : { background: 'rgba(34,197,94,0.1)', color: '#4ade80' }}>{status}</span>
                   </div>
                   <div className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>📍 {location}</div>
-                  <div className="text-xs font-semibold mb-4" style={{ color: '#C9912A' }}>{type}</div>
+                  <div className="text-xs font-semibold mb-3" style={{ color: '#C9912A' }}>{type}</div>
                   <p className="text-xs leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>{details}</p>
                   <div className="grid grid-cols-2 gap-3 text-xs mb-4">
                     <div className="rounded-lg p-2" style={{ background: '#080f18' }}>
@@ -114,7 +114,7 @@ export default function Projects() {
                   {photos.length > 0 && (
                     <button
                       onClick={() => setGallery({ photos, title: name, subtitle: location })}
-                      className="w-full text-center text-sm font-semibold py-2 rounded-lg transition-all"
+                      className="w-full text-center text-sm font-semibold py-2.5 rounded-lg transition-all"
                       style={{ background: 'rgba(201,145,42,0.15)', color: '#C9912A', border: '1px solid rgba(201,145,42,0.3)' }}
                     >
                       📷 View Photos ({photos.length})
@@ -126,12 +126,12 @@ export default function Projects() {
           </div>
 
           <div className="section-label mb-2">COMPLETED PROJECTS</div>
-          <h2 className="section-title mb-6">Past Portfolio</h2>
-          <div className="rounded-xl p-4 mb-6 text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.1)', color: '#C9912A' }}>
+          <h2 className="section-title mb-5">Past Portfolio</h2>
+          <div className="rounded-xl p-4 mb-5 text-xs" style={{ background: 'rgba(201,145,42,0.05)', border: '1px solid rgba(201,145,42,0.1)', color: '#C9912A' }}>
             ⚠️ Property names and details are placeholders — update with your actual completed projects.
           </div>
           <div className="overflow-x-auto rounded-xl" style={{ border: '1px solid rgba(255,255,255,0.05)' }}>
-            <table className="w-full text-sm">
+            <table className="w-full text-sm" style={{ minWidth: '480px' }}>
               <thead>
                 <tr style={{ background: 'rgba(27,43,75,0.5)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                   <th className="text-left px-4 py-3 font-semibold text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>Property</th>
@@ -144,10 +144,10 @@ export default function Projects() {
               <tbody>
                 {completed.map((p, i) => (
                   <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <td className="px-4 py-3 font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>{p.name}</td>
-                    <td className="px-4 py-3" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.location}</td>
+                    <td className="px-4 py-3 font-medium text-xs" style={{ color: 'rgba(255,255,255,0.8)' }}>{p.name}</td>
+                    <td className="px-4 py-3 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.location}</td>
                     <td className="px-4 py-3 text-xs" style={{ color: '#C9912A' }}>{p.type}</td>
-                    <td className="px-4 py-3" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.year}</td>
+                    <td className="px-4 py-3 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{p.year}</td>
                     <td className="px-4 py-3 text-xs" style={{ color: '#4ade80' }}>{p.result}</td>
                   </tr>
                 ))}
@@ -157,11 +157,11 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="py-16 text-center" style={{ background: '#1B2B4B' }}>
+      <section className="py-10 md:py-16 text-center" style={{ background: '#1B2B4B' }}>
         <div className="container-site max-w-xl mx-auto">
-          <h2 className="text-white text-3xl font-black mb-4">Interested in a Partnership?</h2>
-          <p className="mb-8" style={{ color: 'rgba(255,255,255,0.5)' }}>Join our investor network and gain access to high-quality deal flow across New Jersey.</p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h2 className="text-white text-2xl md:text-3xl font-black mb-4">Interested in a Partnership?</h2>
+          <p className="mb-7" style={{ color: 'rgba(255,255,255,0.5)' }}>Join our investor network and gain access to high-quality deal flow across New York.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Link to="/investor" className="btn-gold">Investor Partnerships</Link>
             <Link to="/upcoming-projects" className="btn-outline">Upcoming Projects</Link>
           </div>
